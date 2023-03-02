@@ -5,7 +5,8 @@ namespace App\Controllers;
 class Dashboard extends BaseController
 {
     private function crear_vista($nombre_vista = '', $datos = array()){
-        $datos['menu'] = crear_menu_panel();
+        $pagina = 'dashboard';
+        $datos['menu'] = crear_menu_panel($pagina);
         // $datos['menu'] = '';
         return view($nombre_vista, $datos);
     }

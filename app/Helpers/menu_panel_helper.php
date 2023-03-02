@@ -1,15 +1,14 @@
 <?php
 
 //function configurar_menu($pagina = '')
-    function configurar_menu(){
+    function configurar_menu($pagina){
 
         $menu = array();
         $menu_item = array();
         $sub_menu_item = array();
 
         //Opción Dashboard
-        //$menu_item['is_active'] =  ($pagina == 'dashboard') ? TRUE : FALSE;
-        $menu_item['is_active'] =  TRUE;
+        $menu_item['is_active'] = ($pagina == 'dashboard') ? TRUE : FALSE; 
         $menu_item['href'] = route_to('dashboard');
         $menu_item['icon'] = 'fa fa-dashboard';
         $menu_item['text'] = 'Dashboard';
@@ -17,7 +16,7 @@
         $menu['inicio'] = $menu_item;
 
         //Opción Usuario
-        $menu_item['is_active'] = FALSE;
+        $menu_item['is_active'] = ($pagina == 'usuarios') ? TRUE : FALSE; 
         $menu_item['href'] = route_to('usuarios');
         $menu_item['icon'] = 'fa fa-user';
         $menu_item['text'] = 'Usuarios';
@@ -25,7 +24,7 @@
         $menu['usuario'] = $menu_item;
 
         //Opción Boletos 
-        $menu_item['is_active'] = FALSE;
+        $menu_item['is_active'] = ($pagina == 'canciones') ? TRUE : FALSE; 
         $menu_item['href'] = route_to('canciones');
         $menu_item['icon'] = 'fa fa-music';
         $menu_item['text'] = 'Canciones';
@@ -34,7 +33,7 @@
 
 
         //Opción Compras 
-        $menu_item['is_active'] = FALSE;
+        $menu_item['is_active'] = ($pagina == 'generos') ? TRUE : FALSE;
         $menu_item['href'] = route_to('generos');
         $menu_item['icon'] = 'fa fa-headphones';
         $menu_item['text'] = 'Generos';
@@ -44,8 +43,8 @@
         return $menu;
     }//end 
 
-    function crear_menu_panel() {
-        $menu = configurar_menu();
+    function crear_menu_panel($pagina) {
+        $menu = configurar_menu($pagina);
         $html= '<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">';
             foreach ($menu as $item) {
                 if($item['href'] != '#'){

@@ -38,6 +38,19 @@ $routes->get('/login','Login::login');
 
 $routes->get('/dashboard','Dashboard::index');
 
+$routes->get('/generos', 'Generos::index');
+$routes->get('/add_genero', 'Generos::addGenero');
+$routes->get('/det_genero', 'Generos::detGenero');
+
+
+$routes->get('/canciones', 'Canciones::index');
+$routes->get('/add_cancion', 'Canciones::addCancion');
+$routes->get('/det_cancion', 'Canciones::detCancion');
+
+
+$routes->get('/usuarios', 'Usuarios::index');
+$routes->get('/add_usuario', 'Usuarios::addUsuario');
+$routes->get('/det_usuario', 'Usuarios::detUsuario');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
